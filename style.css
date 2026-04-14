@@ -1,0 +1,244 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    text-align: center;
+    transition: 0.4s;
+}
+
+/* Navigation */
+nav {
+    padding: 15px;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+h2 {
+    margin-top: 20px;
+}
+
+
+/* Mode Buttons */
+.mode-selector {
+    margin: 10px;
+}
+
+.mode-selector button {
+    padding: 8px 15px;
+    margin: 5px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Game Info */
+.game-info {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+#game-area {
+    position: relative;
+    height: 400px;
+    width: 80%;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+.word {
+    position: absolute;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#input {
+    padding: 10px;
+    width: 250px;
+    font-size: 16px;
+    border-radius: 15px;
+}
+
+/* Kid Mode */
+body.kid {
+    background: linear-gradient(to bottom, #a8e6ff, #ffffff);
+    font-family: "Comic Sans MS", Arial;
+}
+body.kid nav { background: #ffcc70; }
+body.kid #game-area { background: #fff9c4; border: 4px dashed #ff6f61; }
+
+/* Adult Mode */
+body.adult {
+    background: #f4f4f4;
+    color: #333;
+}
+body.adult nav { background: #333; }
+body.adult nav a { color: white; }
+body.adult #game-area { background: white; border: 2px solid #555; }
+
+/* Gamer Mode */
+body.gamer {
+    background: #111;
+    color: #00ffcc;
+    font-family: "Courier New", monospace;
+}
+body.gamer nav { background: black; }
+body.gamer nav a { color: #00ffcc; }
+body.gamer #game-area { background: #1a1a1a; border: 2px solid #00ffcc; }
+
+/* Main About Card */
+.about-card {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+/* Sections inside box */
+.about-section {
+    margin-bottom: 25px;
+}
+
+/* Contact row layout */
+.contact-row {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+/* Contact buttons */
+.contact-btn {
+    padding: 12px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    transition: 0.3s ease;
+}
+
+/* Button colors */
+.email {
+    background-color: #ff6b6b;
+}
+
+.discord {
+    background-color: #5865F2;
+}
+
+.github {
+    background-color: #333;
+}
+
+.contact-btn:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+/* Default About Card (Kid & Adult) */
+.about-card {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+/* ========================= */
+/* GAMER MODE FIX */
+/* ========================= */
+
+body.gamer {
+    background-color: #000;   /* Full black page */
+}
+
+body.gamer .about-card {
+    background-color: #111;   /* Dark card */
+    color: #00ffcc;           /* Neon readable text */
+    box-shadow: 0 0 25px rgba(0, 255, 204, 0.3);
+}
+
+body.gamer h1,
+body.gamer h2 {
+    color: #00ffcc;
+}
+
+/* Contact buttons slightly brighter in gamer mode */
+body.gamer .contact-btn {
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.4);
+}
+/* ===== POPUP BACKGROUND ===== */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+/* SHOW MODAL */
+.modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ===== POPUP BOX ===== */
+.modal-box {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    width: 320px;
+    text-align: center;
+
+    transform: scale(0.7);
+    transition: transform 0.3s ease;
+}
+
+/* POPUP ANIMATION */
+.modal.show .modal-box {
+    transform: scale(1);
+}
+
+/* LIST STYLE */
+.modal-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.modal-box li {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+/* BUTTON */
+.modal-box button {
+    margin-top: 15px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}

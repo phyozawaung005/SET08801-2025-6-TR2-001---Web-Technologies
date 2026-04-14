@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WordFall - Home</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="kid">
+
+<!-- ===== NAVBAR ===== -->
+<nav>
+    <a href="index.html">Home</a>
+    <a href="game.html">Game</a>
+    <a href="instructions.html">Instructions</a>
+    <a href="about.html">About</a>
+</nav>
+
+<!-- ===== MAIN CARD ===== -->
+<div class="about-card">
+
+    <h1>Welcome to WordFall</h1>
+
+    <p>
+        WordFall is a fun typing game. Type the falling words before they reach the bottom.
+    </p>
+
+    <!-- MODE -->
+    <div class="mode-selector">
+        <button onclick="setMode('kid')">Kid Mode</button>
+        <button onclick="setMode('adult')">Adult Mode</button>
+        <button onclick="setMode('gamer')">Gamer Mode</button>
+    </div>
+
+    <!-- SOUND -->
+    <div style="text-align:center; margin-top:15px;">
+        <button onclick="toggleSound()">🔊 Toggle Sound</button>
+    </div>
+
+    <!-- START -->
+    <div style="text-align:center; margin-top:20px;">
+        <a href="game.html" class="button">Start Game</a>
+    </div>
+
+    <!-- LEADERBOARD BUTTON -->
+    <div style="text-align:center; margin-top:15px;">
+        <button onclick="openLeaderboard()">🏆 View Leaderboard</button>
+    </div>
+
+</div>
+
+<!-- ===== LEADERBOARD MODAL ===== -->
+<div id="leaderboardModal" class="modal">
+    <div class="modal-content">
+        <h2>🏆 Leaderboard</h2>
+        <ul id="leaderboardList"></ul>
+        <button onclick="closeLeaderboard()">Close</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

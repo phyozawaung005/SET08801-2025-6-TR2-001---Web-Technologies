@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>WordFall - Game</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="kid">
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="game.html">Game</a>
+    <a href="instructions.html">Instructions</a>
+    <a href="about.html">About</a>
+</nav>
+
+<div class="mode-selector">
+    <button onclick="setMode('kid')">Kid Mode</button>
+    <button onclick="setMode('adult')">Adult Mode</button>
+    <button onclick="setMode('gamer')">Gamer Mode</button>
+</div>
+
+<div class="game-info">
+    <span>Score: <span id="score">0</span></span>
+    <span>Lives: <span id="lives">3</span></span>
+    <span>Time: <span id="time">60</span>s</span>
+    <span>WPM: <span id="wpm">0</span></span>
+    <span>Accuracy: <span id="accuracy">100</span>%</span>
+</div>
+<div id="leaderboardModal" class="modal">
+    <div class="modal-content">
+        <h2>🏆 Leaderboard</h2>
+        <ul id="leaderboardList"></ul>
+        <button onclick="closeLeaderboard()">Close</button>
+    </div>
+</div>
+
+<div id="game-area"></div>
+
+<input type="text" id="input" placeholder="Type here..." autofocus>
+
+<script src="script.js"></script>
+</body>
+</html>
