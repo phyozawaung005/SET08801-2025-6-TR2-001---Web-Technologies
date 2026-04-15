@@ -242,3 +242,96 @@ body.gamer .contact-btn {
     border-radius: 8px;
     cursor: pointer;
 }
+/* ===== GAME OVER SCREEN ===== */
+.game-over {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.9);
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s ease;
+}
+
+.game-over.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.game-over-box {
+    text-align: center;
+    animation: zoomIn 0.4s ease;
+}
+
+.game-over h1 {
+    font-size: 50px;
+    color: red;
+    margin-bottom: 20px;
+}
+
+.game-over button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* ANIMATION */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+body.damage {
+    background: red !important;
+}
+body.damage {
+    background: rgba(255, 0, 0, 0.3);
+    transition: 0.2s;
+}
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-box {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    width: 350px;
+    text-align: center;
+}
+
+#leaderboardList {
+    list-style: none;
+    padding: 0;
+}
+
+#leaderboardList li {
+    margin: 8px 0;
+    font-weight: bold;
+}

@@ -28,12 +28,27 @@
     <span>WPM: <span id="wpm">0</span></span>
     <span>Accuracy: <span id="accuracy">100</span>%</span>
 </div>
+<!-- ===== LEADERBOARD MODAL ===== -->
 <div id="leaderboardModal" class="modal">
-    <div class="modal-content">
-        <h2>🏆 Leaderboard</h2>
-        <ul id="leaderboardList"></ul>
-        <button onclick="closeLeaderboard()">Close</button>
+  <div class="modal-box">
+
+    <h2>🏆 Leaderboard</h2>
+
+    <ul id="leaderboardList"></ul>
+
+    <button onclick="closeLeaderboard()">Close</button>
+  </div>
+</div>
+    <div id="gameOverScreen" class="game-over">
+    <div class="game-over-box">
+        <h1>💀 GAME OVER</h1>
+        <p>Score: <span id="finalScore"></span></p>
+        <p>WPM: <span id="finalWPM"></span></p>
+        <p>Accuracy: <span id="finalAccuracy"></span>%</p>
+
+        <button onclick="restartGame()">Play Again</button>
     </div>
+</div>
 </div>
 
 <div id="game-area"></div>

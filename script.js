@@ -33,7 +33,7 @@ if (document.getElementById("game-area")) {
     let totalTyped = 0;
     let correctTyped = 0;
 
-    let gameOver = false; // ✅ IMPORTANT FLAG
+    let gameOver = false;
 
     /* ===== SOUND ===== */
     const typingSound = new Audio("typing.mp3");
@@ -104,25 +104,46 @@ if (document.getElementById("game-area")) {
         word.style.left = Math.random() * 80 + "%";
         word.style.top = "0px";
 
+        word.hit = false; // ✅ IMPORTANT FIX
+
         gameArea.appendChild(word);
 
         let position = 0;
 
         function fall() {
-            if (gameOver) return;
+            if (gameOver || word.hit) return;
 
             position += speed;
             word.style.top = position + "px";
 
-            if (position > 380) {
+            // ❗ MISSED WORD (ONLY ONCE)
+            if (position > 380 && !word.hit) {
+
+                word.hit = true;
                 word.remove();
+
+                lives--;
+                if (lives < 0) lives = 0;
+
+                livesDisplay.innerText = lives;
+
+                // damage effect
+                document.body.classList.add("damage");
+                setTimeout(() => {
+                    document.body.classList.remove("damage");
+                }, 150);
 
                 if (soundEnabled) {
                     missSound.currentTime = 0;
                     missSound.play();
                 }
 
-                return; // no life loss
+                if (lives === 0) {
+                    endGame();
+                    return;
+                }
+
+                return;
             }
 
             requestAnimationFrame(fall);
@@ -149,22 +170,30 @@ if (document.getElementById("game-area")) {
         let matched = false;
 
         words.forEach(word => {
-            if (word.innerText === typed) {
+            if (word.innerText === typed && !word.hit) {
+
+                word.hit = true; // ✅ STOP FALL
                 word.remove();
+
                 score++;
                 correctTyped++;
                 scoreDisplay.innerText = score;
+
                 matched = true;
             }
         });
 
-        // ❗ ONLY WRONG INPUT REDUCES LIFE
+        // ❗ WRONG INPUT → LOSE LIFE
         if (!matched && typed !== "") {
-            lives--; // simple and clean
-
+            lives--;
             if (lives < 0) lives = 0;
 
             livesDisplay.innerText = lives;
+
+            document.body.classList.add("damage");
+            setTimeout(() => {
+                document.body.classList.remove("damage");
+            }, 150);
 
             if (lives === 0) {
                 endGame();
@@ -224,15 +253,12 @@ if (document.getElementById("game-area")) {
             });
         }
 
-        modal.classList.add("show"); // ✅ MATCH CSS
+        modal.classList.add("show");
     }
 
     function closeLeaderboard() {
         document.getElementById("leaderboardModal").classList.remove("show");
-
-        setTimeout(() => {
-            location.reload();
-        }, 300);
+        setTimeout(() => location.reload(), 300);
     }
 
     /* ===== END GAME ===== */
@@ -246,6 +272,9 @@ if (document.getElementById("game-area")) {
 
         input.disabled = true;
 
+        // ❗ REMOVE ALL WORDS (VERY IMPORTANT)
+        document.querySelectorAll(".word").forEach(w => w.remove());
+
         saveScore();
 
         if (soundEnabled) {
@@ -253,8 +282,11 @@ if (document.getElementById("game-area")) {
             gameOverSound.play();
         }
 
-        setTimeout(() => {
-            showLeaderboard();
-        }, 500);
+        showLeaderboard();
     }
+}
+
+/* ===== RESTART ===== */
+function restartGame() {
+    location.reload();
 }
