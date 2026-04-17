@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>WordFall - Home</title>
 <link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body class="kid">
@@ -33,30 +36,11 @@
         <button onclick="setMode('gamer')">Gamer Mode</button>
     </div>
 
-    <!-- SOUND -->
-    <div style="text-align:center; margin-top:15px;">
-        <button onclick="toggleSound()">🔊 Toggle Sound</button>
-    </div>
-
-    <!-- START -->
+    <!-- START BUTTON (UPDATED) -->
     <div style="text-align:center; margin-top:20px;">
-        <a href="game.html" class="button">Start Game</a>
+        <button class="button" onclick="startGame()">Start Game</button>
     </div>
 
-    <!-- LEADERBOARD BUTTON -->
-    <div style="text-align:center; margin-top:15px;">
-        <button onclick="openLeaderboard()">🏆 View Leaderboard</button>
-    </div>
-
-</div>
-
-<!-- ===== LEADERBOARD MODAL ===== -->
-<div id="leaderboardModal" class="modal">
-    <div class="modal-content">
-        <h2>🏆 Leaderboard</h2>
-        <ul id="leaderboardList"></ul>
-        <button onclick="closeLeaderboard()">Close</button>
-    </div>
 </div>
 
 <script src="script.js"></script>

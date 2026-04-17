@@ -290,3 +290,32 @@ if (document.getElementById("game-area")) {
 function restartGame() {
     location.reload();
 }
+function openLeaderboard() {
+
+    const modal = document.getElementById("leaderboardModal");
+    const list = document.getElementById("leaderboardList");
+
+    let data = JSON.parse(localStorage.getItem("lb")) || [];
+
+    list.innerHTML = "";
+
+    if (data.length === 0) {
+        list.innerHTML = "<li>No scores yet</li>";
+    } else {
+        data.forEach((d, i) => {
+            let li = document.createElement("li");
+            li.innerText =
+            `#${i+1} Score:${d.score} | Lives:${d.lives} | Time:${d.time} | WPM:${d.wpm} | Acc:${d.acc}%`;
+            list.appendChild(li);
+        });
+    }
+
+    modal.classList.add("show");
+}
+
+function closeLeaderboard() {
+    document.getElementById("leaderboardModal").classList.remove("show");
+}
+function startGame() {
+    window.location.href = "game.html";
+}

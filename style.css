@@ -335,3 +335,127 @@ body.damage {
     margin: 8px 0;
     font-weight: bold;
 }
+/* ===== MODAL ===== */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+/* SHOW MODAL */
+.modal.show {
+    display: flex;
+}
+
+/* CONTENT BOX */
+.modal-content {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    width: 350px;
+    text-align: center;
+}
+
+/* 🎯 POPUP ANIMATION */
+.animate-popup {
+    animation: popup 0.4s ease;
+}
+
+@keyframes popup {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    70% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* LIST STYLE */
+#leaderboardList {
+    list-style: none;
+    padding: 0;
+}
+
+#leaderboardList li {
+    margin: 8px 0;
+    font-weight: bold;
+}
+/* FULL SCREEN BACKGROUND */
+.leaderboard-screen {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* SHOW */
+.leaderboard-screen.show {
+    display: flex;
+}
+
+/* BOX */
+.leaderboard-box {
+    background: #f5f5f5;
+    padding: 30px;
+    border-radius: 15px;
+    width: 500px;
+    text-align: center;
+
+    animation: gameOverPop 0.4s ease;
+}
+
+/* TEXT STYLE */
+.leaderboard-box h1 {
+    margin-bottom: 20px;
+}
+
+/* ENTRY */
+.leaderboard-box div {
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* BUTTON */
+.leaderboard-box button {
+    margin-top: 20px;
+    padding: 8px 15px;
+}
+
+/* 🎯 ANIMATION */
+@keyframes gameOverPop {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    70% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+.cabin-sketch-regular {
+  font-family: "Cabin Sketch", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.cabin-sketch-bold {
+  font-family: "Cabin Sketch", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
