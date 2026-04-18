@@ -21,7 +21,7 @@
 
 - **HTML5**  
 - **CSS3**  
-- **JavaScript (Vanilla JS)**  
+- **JavaScript**  
 - **Browser Local Storage API**
 
 ---
