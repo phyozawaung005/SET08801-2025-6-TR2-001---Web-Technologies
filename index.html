@@ -1,48 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WordFall - Home</title>
-<link rel="stylesheet" href="style.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="WordFall: A fast-paced typing game with Kid, Adult, and Gamer modes!">
+    <title>WordFall - Home</title>
+    
+    <!-- CSS & Fonts -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body class="kid">
 
-<!-- ===== NAVBAR ===== -->
-<nav>
-    <a href="index.html">Home</a>
-    <a href="game.html">Game</a>
-    <a href="instructions.html">Instructions</a>
-    <a href="about.html">About</a>
-</nav>
+    <!-- Header & Navigation -->
+    <header>
+        <nav aria-label="Main Navigation">
+            <a href="index.html">Home</a>
+            <a href="game.html">Game</a>
+            <a href="instructions.html">Instructions</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
 
-<!-- ===== MAIN CARD ===== -->
-<div class="about-card">
+    <!-- Main Content -->
+    <main class="container">
+        <article class="about-card">
+            <h1>Welcome to WordFall</h1>
 
-    <h1>Welcome to WordFall</h1>
+            <p>
+                WordFall is a fun typing game. Type the falling words before they reach the bottom!
+            </p>
 
-    <p>
-        WordFall is a fun typing game. Type the falling words before they reach the bottom.
-    </p>
+            <!-- MODE SELECTOR -->
+            <section class="mode-selector" aria-labelledby="mode-heading">
+                <h2 id="mode-heading" style="font-size: 1.2rem;">Choose Your Theme:</h2>
+                <button type="button" onclick="setMode('kid')">🎨 Kid Mode</button>
+                <button type="button" onclick="setMode('adult')">💼 Adult Mode</button>
+                <button type="button" onclick="setMode('gamer')">⌨️ Gamer Mode</button>
+            </section>
 
-    <!-- MODE -->
-    <div class="mode-selector">
-        <button onclick="setMode('kid')">Kid Mode</button>
-        <button onclick="setMode('adult')">Adult Mode</button>
-        <button onclick="setMode('gamer')">Gamer Mode</button>
-    </div>
+            <!-- START ACTION -->
+            <div style="text-align:center; margin-top:30px;">
+                <!-- If this goes to a new page, use an <a> tag styled as a button -->
+                <button class="contact-btn email" onclick="startGame()" style="font-size: 1.5rem; padding: 15px 40px; border: none; cursor: pointer;">
+                    Play Now!
+                </button>
+            </div>
+        </article>
+    </main>
 
-    <!-- START BUTTON (UPDATED) -->
-    <div style="text-align:center; margin-top:20px;">
-        <button class="button" onclick="startGame()">Start Game</button>
-    </div>
+    <!-- Footer (Optional but nice) -->
+    <footer>
+        <p>&copy; 2026 WordFall Dev Team</p>
+    </footer>
 
-</div>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

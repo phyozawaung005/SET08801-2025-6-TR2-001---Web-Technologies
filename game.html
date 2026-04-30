@@ -1,61 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>WordFall - Game</title>
-<link rel="stylesheet" href="style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordFall - Game</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Cabin Sketch Font for Kid Mode -->
+    <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body class="kid">
 
-<nav>
-    <a href="index.html">Home</a>
-    <a href="game.html">Game</a>
-    <a href="instructions.html">Instructions</a>
-    <a href="about.html">About</a>
-</nav>
+    <nav aria-label="Main Navigation">
+        <a href="index.html">Home</a>
+        <a href="game.html">Game</a>
+        <a href="instructions.html">Instructions</a>
+        <a href="about.html">About</a>
+    </nav>
 
-<div class="mode-selector">
-    <button onclick="setMode('kid')">Kid Mode</button>
-    <button onclick="setMode('adult')">Adult Mode</button>
-    <button onclick="setMode('gamer')">Gamer Mode</button>
-</div>
-
-<div class="game-info">
-    <span>Score: <span id="score">0</span></span>
-    <span>Lives: <span id="lives">3</span></span>
-    <span>Time: <span id="time">60</span>s</span>
-    <span>WPM: <span id="wpm">0</span></span>
-    <span>Accuracy: <span id="accuracy">100</span>%</span>
-</div>
-<!-- ===== LEADERBOARD MODAL ===== -->
-<div id="leaderboardModal" class="modal">
-  <div class="modal-box">
-
-    <h2>🏆 Leaderboard</h2>
-
-    <ul id="leaderboardList"></ul>
-
-    <button onclick="closeLeaderboard()">Close</button>
-  </div>
-</div>
-    <div id="gameOverScreen" class="game-over">
-    <div class="game-over-box">
-        <h1>💀 GAME OVER</h1>
-        <p>Score: <span id="finalScore"></span></p>
-        <p>WPM: <span id="finalWPM"></span></p>
-        <p>Accuracy: <span id="finalAccuracy"></span>%</p>
-
-        <button onclick="restartGame()">Play Again</button>
+    <!-- Theme Selection -->
+    <div class="mode-selector">
+        <button type="button" onclick="setMode('kid')">🎨 Kid Mode</button>
+        <button type="button" onclick="setMode('adult')">💼 Adult Mode</button>
+        <button type="button" onclick="setMode('gamer')">⌨️ Gamer Mode</button>
     </div>
-</div>
-</div>
 
-<div id="game-area"></div>
+    <!-- Stats Bar -->
+    <div class="game-info">
+        <div class="stat-box">Score: <span id="score">0</span></div>
+        <div class="stat-box">Lives: <span id="lives">3</span></div>
+        <div class="stat-box">Time: <span id="time">60</span>s</div>
+        <div class="stat-box">WPM: <span id="wpm">0</span></div>
+        <div class="stat-box">Accuracy: <span id="accuracy">100</span>%</div>
+    </div>
 
-<input type="text" id="input" placeholder="Type here..." autofocus>
+    <!-- ===== LEADERBOARD MODAL ===== -->
+    <div id="leaderboardModal" class="modal" role="dialog" aria-labelledby="leaderboardTitle">
+        <div class="modal-box">
+            <h2 id="leaderboardTitle">🏆 Leaderboard</h2>
+            <ul id="leaderboardList"></ul>
+            <button class="contact-btn email" onclick="closeLeaderboard()">Close</button>
+        </div>
+    </div>
 
-<script src="script.js"></script>
+    <!-- ===== GAME OVER SCREEN ===== -->
+    <div id="gameOverScreen" class="game-over">
+        <div class="game-over-box">
+            <h1>💀 GAME OVER</h1>
+            <div class="final-stats">
+                <p>Score: <span id="finalScore">0</span></p>
+                <p>WPM: <span id="finalWPM">0</span></p>
+                <p>Accuracy: <span id="finalAccuracy">0</span>%</p>
+            </div>
+            <button class="contact-btn email" onclick="restartGame()">Play Again</button>
+        </div>
+    </div>
+
+    <!-- ===== MAIN GAME AREA ===== -->
+    <main id="game-area">
+        <!-- Words will be spawned here via JavaScript -->
+    </main>
+
+    <!-- Typing Input -->
+    <div class="input-container">
+        <input type="text" id="input" 
+               placeholder="Type words here..." 
+               autofocus 
+               autocomplete="off" 
+               autocorrect="off" 
+               spellcheck="false">
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
